@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Document</title>
+    <style>
+        .container{
+            margin-top: 200px;
+            margin-left: 200px;
+            max-width: 500px;
+            height: 410px;
+            background-color: lightgreen;
+            border: 5px solid ;
+        }
+        p{
+            text-align: center;
+            font-weight: bold;
+        }
+        input{
+           margin-left: 160px;
+           border: 2px solid ;
+           
+        }
+        button{
+            border: 2px solid ;
+            margin-top: 10px;
+            margin-left: 215px;
+            margin-bottom: 20px;
+        }
+        .title{
+            text-align: center;
+            font-weight: bold;
+            font-size: 27px;
+        }
+        #message {
+            text-align: center;
+            font-weight: bold;
+            color: darkgreen; 
+        }
+        img{
+          
+            margin-left: 205px;
+        }
+    </style>
+    
+
+</head>
+<body>
+    <form>
+    <div class="container">
+    <p class = "title">Guess The Number</p>
+    <p>Guess a number between (0-9) : </p>
+
+    <input type="number" id="userInput">
+    <br>
+    <button type="button" onclick="Guess()">Try Now</button>
+            <div>    
+                <img src="" id="resultImage">
+                <p id="message"> </p>
+            </div>
+</div>
+</form>
+
+<script>
+    function Guess() {
+        var userInput = document.getElementById("userInput");
+        var message = document.getElementById("message");
+        var resultImage = document.getElementById("resultImage");
+        var userNumber = parseInt(userInput.value);
+        var randomNumber = Math.floor(Math.random() * 10);
+        if (userNumber === randomNumber) {
+            message.style.color = "darkgreen";
+            message.textContent = "Great Work!";
+        } else {
+            message.style.color = "red";
+            message.textContent = "Try Again!";
+        }
+
+        resultImage.src = `${randomNumber}.PNG`; 
+    }
+</script>
+</body>
+</html>
